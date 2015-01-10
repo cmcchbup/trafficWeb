@@ -80,3 +80,5 @@ C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Web\bin\zh-Hans\System.Net.
 C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Web\obj\Debug\Web.dll
 C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Web\obj\Debug\Web.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Web\bin\Tools.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Web\bin\Tools.pdb

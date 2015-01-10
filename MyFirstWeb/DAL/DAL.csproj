@@ -43,6 +43,7 @@
     <Compile Include="BaoJingRenDAL.cs" />
     <Compile Include="CaseInfoDAL.cs" />
     <Compile Include="JieJingRenDAL.cs" />
+    <Compile Include="LoginDALExt.cs" />
     <Compile Include="LoginDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShouHaiCheDAL.cs" />
