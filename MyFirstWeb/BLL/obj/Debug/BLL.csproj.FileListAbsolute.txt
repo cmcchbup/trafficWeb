@@ -7,3 +7,12 @@ c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\Mod
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\obj\Debug\BLL.dll
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\obj\Debug\BLL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Debug\BLL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Debug\BLL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Debug\DAL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Debug\Model.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Debug\DAL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Debug\Model.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\obj\Debug\BLL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\obj\Debug\BLL.pdb

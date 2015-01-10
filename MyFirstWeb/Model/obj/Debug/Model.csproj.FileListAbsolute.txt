@@ -3,3 +3,8 @@ c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\bin\Debug\M
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\obj\Debug\Model.dll
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\obj\Debug\Model.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Model\bin\Debug\Model.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Model\bin\Debug\Model.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Model\obj\Debug\Model.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Model\obj\Debug\Model.pdb

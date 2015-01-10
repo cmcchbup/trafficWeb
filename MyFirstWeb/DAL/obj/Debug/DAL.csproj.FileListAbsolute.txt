@@ -5,3 +5,10 @@ c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\bin\Debug\Mod
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\bin\Debug\Model.pdb
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\obj\Debug\DAL.dll
 c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\obj\Debug\DAL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\obj\Debug\DAL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Debug\DAL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Debug\DAL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Debug\Model.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Debug\Model.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\obj\Debug\DAL.pdb
