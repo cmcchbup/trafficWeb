@@ -147,7 +147,7 @@
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;系统设置</a>
                 <a class="Menu2" href="AddUser.html">添加用户</a>
                 <a class="Menu2" href="NewsList.aspx">注销用户</a>
-                <a class="Menu2" href="NewsList.aspx">修改密码</a>
+                <a class="Menu2" href="EditPassword.html">修改密码</a>
                 <a class="Menu2" href="NewsList.aspx">退出登录</a>
             </div>
             <div id="Main">
