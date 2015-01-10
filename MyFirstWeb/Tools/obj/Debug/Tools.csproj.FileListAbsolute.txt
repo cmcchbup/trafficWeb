@@ -2,4 +2,3 @@ C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\bin\Debug\Tools.dll
 C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\bin\Debug\Tools.pdb
 C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\obj\Debug\Tools.dll
 C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\obj\Debug\Tools.pdb
-C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\obj\Debug\Tools.csprojResolveAssemblyReference.cache
