@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <!--<link href="../CSS/tableStyle.css" rel="stylesheet" />-->
+    <style type="text/css">
+        #AddUserDiv {
+            margin-top: 10%;
+            margin-left: 20%;
+        }
+    </style>
+    <script src="../JS/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#btnAdd").click(function() {
+                var UserName = $("#txtUserName").val();
+                var Password = $("#txtPassword").val();
+                var UserType = $("#selUserType").val();
+                if (UserName.length<=0||Password.length<=0) {
+                    alert('内容不允许为空');
+                }
+                $.post("AddUser.ashx", {u:UserName,p:Password,t:UserType},function(data) {
+                    if (data=="ok") {
+                        //成功添加了用户
+                        alert('添加成功');
+                    }else if (data=="fail") {
+                        alert('添加失败');
+                    }else if (data=="exit") {
+                        alert('用户已存在');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="AddUserDiv">
+        <table>
+            <tr>
+                <th>用户名:</th>
+                <td><input id="txtUserName" type="text" name="UserName" value="" /></td>
+            </tr>
+            <tr>
+                <th>密码:</th>
+                <td><input id="txtPassword" type="password" name="Password" value="" /></td>
+            </tr>
+            <tr>
+                <th>管理员类型:</th>
+                <td>
+                    <select id="selUserType">
+                        <option value="police">普通交警</option>
+                        <option value="admin">管理员</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input id="btnAdd" type="button" value="添加" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

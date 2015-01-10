@@ -12,7 +12,7 @@ namespace NET.CLY.DAL
         public Login Login(string UserName, string Password)
         {
             string sql = "select * from Login where UserName=@UserName and Password=@Password";
-            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql, 
+            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql,
                 new SqlParameter("@UserName", ToDBValue(UserName)),
                 new SqlParameter("@Password", ToDBValue(Password))))
             {
@@ -25,6 +25,13 @@ namespace NET.CLY.DAL
                     return null;
                 }
             }
+        }
+
+        public int ExitName(string userName)
+        {
+            string sql = "select count(*) from Login where UserName=@UserName";
+            int Result = (int)SqlHelper.ExecuteScalar(sql, new SqlParameter("@UserName", userName));
+            return Result;
         }
 
     }

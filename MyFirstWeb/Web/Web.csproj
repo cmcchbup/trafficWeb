@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddUser.html" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Main.aspx" />
     <Content Include="Admin\Welcome.html" />
@@ -116,6 +117,7 @@
     <Content Include="JS\jquery-1.8.2.min.js" />
     <Content Include="packages.config" />
     <Content Include="Admin\ValidateCode.ashx" />
+    <Content Include="Admin\AddUser.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -136,6 +138,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddUser.ashx.cs">
+      <DependentUpon>AddUser.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

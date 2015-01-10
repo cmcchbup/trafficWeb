@@ -12,7 +12,7 @@ namespace NET.CLY.DAL
         public Login Add
 			(Login login)
 		{
-				string sql ="INSERT INTO Login (Id, UserName, Password, UserType)  VALUES (@Id, @UserName, @Password, @UserType)";
+				string sql ="INSERT INTO Login (UserName, Password, UserType)  VALUES (@UserName, @Password, @UserType)";
 				SqlParameter[] para = new SqlParameter[]
 					{
 						new SqlParameter("@Id", ToDBValue(login.Id)),
