@@ -1,0 +1,7 @@
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\bin\Debug\DAL.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\bin\Debug\DAL.pdb
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\bin\Debug\Model.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\bin\Debug\Model.pdb
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\obj\Debug\DAL.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\DAL\obj\Debug\DAL.pdb

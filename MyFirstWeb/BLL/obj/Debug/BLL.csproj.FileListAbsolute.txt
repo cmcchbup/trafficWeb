@@ -1,0 +1,9 @@
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\BLL.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\BLL.pdb
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\DAL.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\Model.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\DAL.pdb
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\bin\Debug\Model.pdb
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\obj\Debug\BLL.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\BLL\obj\Debug\BLL.pdb

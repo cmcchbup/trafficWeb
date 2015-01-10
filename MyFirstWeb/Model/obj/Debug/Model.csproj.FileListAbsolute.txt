@@ -1,0 +1,5 @@
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\bin\Debug\Model.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\bin\Debug\Model.pdb
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\obj\Debug\Model.dll
+c:\users\root\documents\visual studio 2013\Projects\MyFirstWeb\Model\obj\Debug\Model.pdb
