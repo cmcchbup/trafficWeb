@@ -131,12 +131,12 @@
                 <a class="Menu2" href="NewsList.aspx">案件修改</a>
                 <a class="Menu2" href="NewsList.aspx">案件删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;肇事方信息管理</a>
-                <a class="Menu2" href="NewsList.aspx">肇事方信息录入</a>
+                <a class="Menu2" href="AddZhaoShiFang.html">肇事方信息录入</a>
                 <a class="Menu2" href="NewsList.aspx">肇事方信息修改</a>
                 <a class="Menu2" href="NewsList.aspx">肇事方信息删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;受害方信息管理</a>
-                <a class="Menu2" href="NewsList.aspx">受害方信息删除</a>
-                <a class="Menu2" href="NewsList.aspx">受害方信息删除</a>
+                <a class="Menu2" href="AddShouHaiFang.html">受害方信息录入</a>
+                <a class="Menu2" href="NewsList.aspx">受害方信息修改</a>
                 <a class="Menu2" href="NewsList.aspx">受害方信息删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;信息查询</a>
                 <a class="Menu2" href="NewsList.aspx">案件详情查询</a>

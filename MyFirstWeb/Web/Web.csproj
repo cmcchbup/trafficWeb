@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="Admin\AddCaseInfo.html" />
     <Content Include="Admin\AddUser.html" />
+    <Content Include="Admin\AddZhaoShiFang.html" />
     <Content Include="Admin\DeleteUser.html" />
     <Content Include="Admin\EditPassword.html" />
     <Content Include="Admin\Login.aspx" />
