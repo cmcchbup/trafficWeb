@@ -3,6 +3,68 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <script src="../JS/jquery-1.8.2.js"></script>
+    <script src="../JS/MyAjaxForm.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnUploadPeople").click(function () {
+                var str = $("#imgPerson").val();
+                if (str.length<=0) {
+                    alert('请选择文件');
+                    return false;
+                }
+                var ext = str.substring(str.lastIndexOf('.'));
+                if (ext != ".jpg" || ext != ".png" || ext != ".jpeg") {
+                    alert('文件后缀必须是jpg,jpeg,png');
+                    return false;
+                }
+                
+                $("#frmUploadPeople").ajaxSubmit({
+                    url: "UploadImg.ashx",
+                    type: "POST",
+                    success:function(data) {
+                        if (data != null) {
+                            if (data=="extError") {
+                                alert('文件后缀只能是jpg,jpeg,png');
+                            } else {
+                                $("#ImgPeople").html("<img style='height: 100px;width: 100px' src=" + data + "></img>");
+                            }
+                        }
+                    }
+                });
+            });//上传图片-人
+
+            $("#btnUploadCar").click(function () {
+                
+                var str = $("#imgCar").val();
+                if (str.length <= 0) {
+                    alert('请选择文件');
+                    return false;
+                }
+                var ext = str.substring(str.lastIndexOf('.'));
+                if (ext != ".jpg" || ext != ".png" || ext != ".jpeg") {
+                    alert('文件后缀必须是jpg,jpeg,png');
+                    return false;
+                }
+
+                $("#frmUploadCar").ajaxSubmit({
+                    url: "UploadImg.ashx",
+                    type: "POST",
+                    success: function (data) {
+                        if (data != null) {
+                            if (data == "extError") {
+                                alert('文件后缀只能是jpg,jpeg,png');
+                            } else {
+                                $("#ImgPeople").html("<img style='height: 100px;width: 100px' src=" + data + "></img>");
+                            }
+                        }
+                    }
+                });
+            });//上传图片-车
+            
+
+        });
+    </script>
 </head>
 <body>
     <div>
@@ -45,17 +107,26 @@
             </tr>
             <tr>
                 <td>联系地址：</td>
-                <td><input type="text" id="txtAddress" value="" /></td>
-                <td>照片：</td>
+                <td colspan="2"><input type="text" id="txtAddress" value="" /></td>
+
+            </tr>
+            <!--<td>照片：</td>
                 <td><input type="file" id="imgPerson" value="上传照片" /></td>
-            </tr>
-            <tr>
-                <!--<td colspan="4"><img src="#" alt="Alternate Text" /></td>-->
-            </tr>
+                <td><input type="button" id="btnUploadPeople" value="上传" /></td>
+                <td hidden="true" colspan="4"><img src="#" alt="Alternate Text" /></td>-->
 
         </table>
+        <div>
+            <form id="frmUploadPeople">
+                照片：<input type="file" id="imgPerson" name="img" />
+                <input type="button" id="btnUploadPeople" value="上传" />
+            </form>
+        </div>
+        <div style='height: 100px;width: 100px' id="ImgPeople">
+
+        </div>
     </div>
-    
+
     <div>
         <h2>肇事车辆信息</h2>
         <table>
@@ -77,12 +148,17 @@
                 <td>车主身份证号：</td>
                 <td><input type="text" id="txtCarOwnerPeopleId" value="" /></td>
             </tr>
-            <tr>
-                <td>照片：</td>
-                <td><input type="file" id="imgCar" value="上传照片" /></td>
-                
-            </tr>
+
         </table>
+        <form id="frmUploadCar">
+
+            照片：<input type="file" id="imgCar" name="img"  />
+            <input type="button" id="btnUploadCar" value="上传" />
+
+        </form>
+        <div style='height: 100px;width: 100px' id="ImgCar">
+
+        </div>
     </div>
 </body>
 </html>

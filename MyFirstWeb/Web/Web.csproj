@@ -120,12 +120,14 @@
     <Content Include="Images\bg_menu_one.png" />
     <Content Include="JS\jquery-1.8.2.js" />
     <Content Include="JS\jquery-1.8.2.min.js" />
+    <Content Include="JS\MyAjaxForm.js" />
     <Content Include="packages.config" />
     <Content Include="Admin\ValidateCode.ashx" />
     <Content Include="Admin\AddUser.ashx" />
     <Content Include="Admin\EditPassword.ashx" />
     <Content Include="Admin\DeleteUser.ashx" />
     <Content Include="Admin\AddCase.ashx" />
+    <Content Include="Admin\UploadImg.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -172,6 +174,9 @@
     <Compile Include="Admin\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UploadImg.ashx.cs">
+      <DependentUpon>UploadImg.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>
     </Compile>
@@ -204,7 +209,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UploadFiles\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
   </ItemGroup>
