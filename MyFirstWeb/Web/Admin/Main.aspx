@@ -127,7 +127,7 @@
             </div>
             <div id="LeftBar">
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;接警记录</a>
-                <a class="Menu2" href="NewsList.aspx">案件录入</a>
+                <a class="Menu2" href="AddCaseInfo.html">案件录入</a>
                 <a class="Menu2" href="NewsList.aspx">案件修改</a>
                 <a class="Menu2" href="NewsList.aspx">案件删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;肇事方信息管理</a>
