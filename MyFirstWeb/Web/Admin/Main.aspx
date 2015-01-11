@@ -146,9 +146,9 @@
                 <a class="Menu2" href="NewsList.aspx">肇事者信息查询</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;系统设置</a>
                 <a class="Menu2" href="AddUser.html">添加用户</a>
-                <a class="Menu2" href="NewsList.aspx">注销用户</a>
+                <a class="Menu2" href="DeleteUser.html">注销用户</a>
                 <a class="Menu2" href="EditPassword.html">修改密码</a>
-                <a class="Menu2" href="NewsList.aspx">退出登录</a>
+                <a class="Menu2" href="LoginOut.html">退出登录</a>
             </div>
             <div id="Main">
                 <iframe id="frmWork" width="100%" height="100%" frameborder="0" src="Welcome.html"></iframe>

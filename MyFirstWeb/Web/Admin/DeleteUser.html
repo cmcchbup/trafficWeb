@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        div {
+            margin-top: 10%;
+            margin-left: 20%;
+        }
+    </style>
+    <script src="../JS/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnDel").click(function () {
+                var password = $("#txtPassword").val();
+                if (password.length <= 0) {
+                    alert('密码不能为空');
+                    return;
+                }
+                $.post("DeleteUser.ashx", { password: password }, function (data) {
+                    if (data=="ok") {
+                        alert('用户已注销');
+                        window.top.window.location.href = "Login.aspx";//顶级页面跳转到登陆界面
+                    } else if (data=="passwordError") {
+                        alert('密码输入错误');
+                    } else {
+                        alert('注销失败');
+                    }
+                    
+                });
+
+
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        请输入你的密码：<input id="txtPassword" type="text" name="password" value="" /><br />
+        <input type="button" id="btnDel" value="删除" />
+    </div>
+</body>
+</html>
