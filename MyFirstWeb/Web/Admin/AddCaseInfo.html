@@ -9,6 +9,56 @@
             margin-left: 20%;
         }
     </style>
+    <script src="../JS/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#btnAdd").click(function() {
+                var caseId = $("#CaseId").val();
+                var caseLevel = $("#selCaseLevel").val();
+                var caseSource = $("#selCaseSource").val();
+                var caseDescribe = $("#txtDescribe").val();
+                var JieJingRenName = $("#JieJingRenName").val();
+                var JieJingRenPoliceId = $("#JieJingRenPoliceId").val();
+                var BaoJingRenName = $("#txtBaoJingRenName").val();
+                var BaoJingRenSex = $("#selBaoJingRenSex").val();
+                var BaojingRenPeopleId = $("#txtBaoJingRenPeopleId").val();
+                var BaoJingRenAddress = $("#txtBaoJingRenAddress").val();//可空
+                var BaoJingPhone = $("#txtBaoJingPhone").val();
+                var BaoJingRenContactWay = $("#txtBaoJingRenContactWay").val();//可空
+
+                if (caseId.length<=0||caseLevel.length<=0||caseSource.length<=0||caseDescribe.length<=0||JieJingRenName.length<=0||JieJingRenPoliceId.length<=0||BaoJingRenName.length<=0||BaoJingRenSex.length<=0||BaojingRenPeopleId.length<=0||BaoJingPhone.length<=0) {   //所填内容不能为空
+                    alert('内容不能为空');
+                } else {
+                    $.post("AddCase.ashx", {
+                        caseId: caseId,
+                        caseLevel: caseLevel,
+                        caseSource: caseSource,
+                        caseDescribe: caseDescribe,
+                        JieJingRenName: JieJingRenName,
+                        JieJingRenPoliceId: JieJingRenPoliceId,
+                        BaoJingRenName: BaoJingRenName,
+                        BaoJingRenSex: BaoJingRenSex,
+                        BaojingRenPeopleId: BaojingRenPeopleId,
+                        BaoJingRenAddress: BaoJingRenAddress,
+                        BaoJingPhone: BaoJingPhone,
+                        BaoJingRenContactWay: BaoJingRenContactWay
+                },function(data) {
+                    if (data == "CaseOkJieJingRenOkBaoJingRenOk") {
+                        //说明添加成功
+                        alert('添加成功');
+                        window.location.href = "Welcome.html";
+                    } else {
+                        alert('添加失败');
+                    }
+                    });
+                }
+
+            });
+            $("#btnCancel").click(function() {
+                
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="htmlDiv">
@@ -17,12 +67,12 @@
             <table>
                 <tr>
                     <td>案件编号：</td>
-                    <td><input type="text" name="CaseId" value="" /></td>
+                    <td><input type="text" id="CaseId" value="" /></td>
                 </tr>
                 <tr>
                     <td>案件性质：</td>
                     <td>
-                        <select>
+                        <select id="selCaseLevel">
                             <option value="轻微">轻微</option>
                             <option value="一般">一般</option>
                             <option value="重大">重大</option>
@@ -33,7 +83,7 @@
                 <tr>
                     <td>案件来源：</td>
                     <td>
-                        <select>
+                        <select id="selCaseSource">
                             <option value="直接警">直接警</option>
                             <option value="110指挥中心分配">110指挥中心分配</option>
                         </select>
@@ -47,7 +97,7 @@
                     <td colspan="2">伤亡情况、责任法认定、天气情况、路面情况等事故相关信息)</td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <textarea rows="8" cols="70"></textarea></td>
+                    <td colspan="2"> <textarea id="txtDescribe" rows="8" cols="70"></textarea></td>
                 </tr>
             </table>
         </div>
@@ -57,11 +107,11 @@
             <table>
                 <tr>
                     <td>姓名</td>
-                    <td><input type="text" name="JieJingRenName" value="" /></td>
+                    <td><input type="text" id="JieJingRenName" value="" /></td>
                 </tr>
                 <tr>
                     <td>警号</td>
-                    <td><input type="text" name="JieJingRenPoliceId" value="" /></td>
+                    <td><input type="text" id="JieJingRenPoliceId" value="" /></td>
                 </tr>
 
             </table>
@@ -71,12 +121,12 @@
             <table>
                 <tr>
                     <td>姓名：</td>
-                    <td><input type="text" name="name" value="" /></td>
+                    <td><input type="text" id="txtBaoJingRenName" value="" /></td>
                 </tr>
                 <tr>
                     <td>性别：</td>
                     <td>
-                        <select>
+                        <select id="selBaoJingRenSex">
                             <option value="man">男</option>
                             <option value="woman">女</option>
                         </select>
@@ -84,25 +134,25 @@
                 </tr>
                 <tr>
                     <td>身份证号：</td>
-                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" id="txtBaoJingRenPeopleId" value="" /></td>
                 </tr>
                 <tr>
                     <td>家庭住址：</td>
-                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" id="txtBaoJingRenAddress" value="" /></td>
                 </tr>
                 <tr>
                     <td>报警电话：</td>
-                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" id="txtBaoJingPhone" value="" /></td>
                 </tr>
                 <tr>
                     <td>联系方式：</td>
-                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" id="txtBaoJingRenContactWay" value="" /></td>
                 </tr>
             </table>
         </div>
         <h2>操作</h2>
-        <input type="button" name="" value="保存" />
-        <input type="button" name="" value="取消" />
+        <input type="button" id="btnAdd" value="保存" />
+        <input type="button" id="btnCancel" value="取消" />
     </div>
 </body>
 </html>
