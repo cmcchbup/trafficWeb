@@ -34,5 +34,21 @@ namespace NET.CLY.DAL
             return Result;
         }
 
+        public Login GetByUserName(string UserName)
+        {
+            string sql = "select * from Login where UserName=@UserName";
+            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql, new SqlParameter("@UserName", UserName)))
+            {
+                if (reader.Read())
+                {
+                    return ToModel(reader);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
     }
 }

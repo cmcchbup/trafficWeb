@@ -18,9 +18,13 @@ namespace NET.CLY.Admin
             context.Response.ContentType = "text/plain";
             string password1 = context.Request["p1"] == null ? string.Empty : context.Request["p1"];
             string password2 = context.Request["p2"] == null ? string.Empty : context.Request["p2"];
-            Model.Login CurrentUser = context.Session["LoginUser"] as Model.Login;
+            //Model.Login CurrentUser = context.Session["LoginUser"] as Model.Login;
+            //Session取出来居然是null,不知道为什么。。。还是改用cookie来实现吧
+            string currentUserName = context.Request["UserName"] == null ? string.Empty : context.Request["UserName"];
+
             BLL.LoginBLL bll = new LoginBLL();
-            Model.Login model = bll.GetById(CurrentUser.Id);
+            Model.Login model= bll.GetByUserName(currentUserName);//根据cookie中的UserName获得login对象。
+
             password1 = CLYLibrary.GetMD5.GetMd5Str(password1);
 
             if (password1.Length <= 0 || password2.Length <= 0)
@@ -29,7 +33,7 @@ namespace NET.CLY.Admin
                 context.Response.End();
             }
 
-            if (password1 != model.Password)
+            if (password1 != model.Password.Trim())
             {
                 //原密码输入错误
                 context.Response.Write("PasswordError");

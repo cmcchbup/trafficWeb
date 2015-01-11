@@ -18,5 +18,10 @@ namespace NET.CLY.BLL
         {
             return new LoginDAL().ExitName(userName);
         }
+
+        public Login GetByUserName(string userName)
+        {
+            return new LoginDAL().GetByUserName(userName);
+        }
     }
 }
