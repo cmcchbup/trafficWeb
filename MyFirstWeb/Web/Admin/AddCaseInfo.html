@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        #htmlDiv {
+            margin-top: 3%;
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="htmlDiv">
+        <div>
+            <h2>案件基本信息</h2>
+            <table>
+                <tr>
+                    <td>案件编号：</td>
+                    <td><input type="text" name="CaseId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>案件性质：</td>
+                    <td>
+                        <select>
+                            <option value="轻微">轻微</option>
+                            <option value="一般">一般</option>
+                            <option value="重大">重大</option>
+                            <option value="特大">特大</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>案件来源：</td>
+                    <td>
+                        <select>
+                            <option value="直接警">直接警</option>
+                            <option value="110指挥中心分配">110指挥中心分配</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">案件简要案情描述：(包括事故发生具体时间、地点、肇事方、受害方、</td>
+                </tr>
+                <tr>
+                    <td colspan="2">伤亡情况、责任法认定、天气情况、路面情况等事故相关信息)</td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <textarea rows="8" cols="70"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h2>接警人信息</h2>
+            <table>
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" name="JieJingRenName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>警号</td>
+                    <td><input type="text" name="JieJingRenPoliceId" value="" /></td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+            <h2>报案人信息</h2>
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" name="name" value="" /></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <select>
+                            <option value="man">男</option>
+                            <option value="woman">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>身份证号：</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td>家庭住址：</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td>报警电话：</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td>联系方式：</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </table>
+        </div>
+        <h2>操作</h2>
+        <input type="button" name="" value="保存" />
+        <input type="button" name="" value="取消" />
+    </div>
+</body>
+</html>
