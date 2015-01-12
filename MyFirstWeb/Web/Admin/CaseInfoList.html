@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../CSS/tableStyle.css" rel="stylesheet" />
+    <link href="../CSS/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../CSS/themes/icon.css" rel="stylesheet" />
+    <script src="../JS/jquery-1.8.2.js"></script>
+    <script src="../JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            InitList();
+
+        });
+
+        function InitList() {
+            $.getJSON("GetCaseInfoList.ashx", {}, function (data) {
+                $("#tBody").html("");
+                for (var i = 0; i < data.length; i++) {
+                    $("#tBody").append("<tr><td>" + data[i].CaseId + "</td><td>" + data[i].CaseLevel + "</td><td>" + data[i].CaseSource + "</td><td>" + data[i].CaseDescribe + "</td><td><a class='edit' href='javascript:void(0)' value='" + data[i].CaseId + "'>修改</a><a class='delete' href='javascript:void(0)' id=" + data[i].CaseId + ">删除</a></td></tr>");
+                }
+
+                $(".edit").click(function () {
+
+
+                    var link = $(this);
+                    $.getJSON("GetCaseInfoById.ashx", { caseId: link.attr("value") }, function (data) {
+                        //获取案件基本信息
+                        $("#CaseId").val(data.CaseInfo.CaseId);
+                        $("#selCaseLevel").val(data.CaseInfo.CaseLevel);
+                        $("#selCaseSource").val(data.CaseInfo.CaseSource);
+                        $("#txtDescribe").val(data.CaseInfo.CaseDescribe);
+                        //获取接警人信息
+                        $("#JieJingRenName").val(data.JieJingRen.Name);
+                        $("#JieJingRenPoliceId").val(data.JieJingRen.PoliceId);
+                        //获取报案人信息
+                        $("#txtBaoJingRenName").val(data.BaoJingRen.Name);
+                        $("#selBaoJingRenSex").val(data.BaoJingRen.Sex);
+                        $("#txtBaoJingRenPeopleId").val(data.BaoJingRen.PeopleId);
+                        $("#txtBaoJingRenAddress").val(data.BaoJingRen.Address);//可空
+                        $("#txtBaoJingPhone").val(data.BaoJingRen.BaoJingPhone);
+                        $("#txtBaoJingRenContactWay").val(data.BaoJingRen.ContactWay);//可空
+                        
+                    });
+
+                    $("#editDiv").css("display", "block");
+                    $("#editDiv").dialog({
+                        title: "修改案件",
+                        width: 600,
+                        heigth: 200,
+                        modal: true
+                    });
+                    $("#btnAdd").unbind("click");
+                    $("#btnAdd").click(function() {
+                        var caseId = $("#CaseId").val();
+                        var caseLevel = $("#selCaseLevel").val();
+                        var caseSource = $("#selCaseSource").val();
+                        var caseDescribe = $("#txtDescribe").val();
+                        var JieJingRenName = $("#JieJingRenName").val();
+                        var JieJingRenPoliceId = $("#JieJingRenPoliceId").val();
+                        var BaoJingRenName = $("#txtBaoJingRenName").val();
+                        var BaoJingRenSex = $("#selBaoJingRenSex").val();
+                        var BaojingRenPeopleId = $("#txtBaoJingRenPeopleId").val();
+                        var BaoJingRenAddress = $("#txtBaoJingRenAddress").val();//可空
+                        var BaoJingPhone = $("#txtBaoJingPhone").val();
+                        var BaoJingRenContactWay = $("#txtBaoJingRenContactWay").val();//可空
+
+                        if (caseId.length <= 0 || caseLevel.length <= 0 || caseSource.length <= 0 || caseDescribe.length <= 0 || JieJingRenName.length <= 0 || JieJingRenPoliceId.length <= 0 || BaoJingRenName.length <= 0 || BaoJingRenSex.length <= 0 || BaojingRenPeopleId.length <= 0 || BaoJingPhone.length <= 0) { //所填内容不能为空
+                            alert('内容不能为空');
+                        } else {
+                            $.post("UpdateCaseInfo.ashx?random="+Math.random(), {
+                                caseId: caseId,
+                                caseLevel: caseLevel,
+                                caseSource: caseSource,
+                                caseDescribe: caseDescribe,
+                                JieJingRenName: JieJingRenName,
+                                JieJingRenPoliceId: JieJingRenPoliceId,
+                                BaoJingRenName: BaoJingRenName,
+                                BaoJingRenSex: BaoJingRenSex,
+                                BaojingRenPeopleId: BaojingRenPeopleId,
+                                BaoJingRenAddress: BaoJingRenAddress,
+                                BaoJingPhone: BaoJingPhone,
+                                BaoJingRenContactWay: BaoJingRenContactWay
+                                },function(data) {
+                                    if (data == "CaseOkBaoJingRenOkJieJingRenOk") {
+                                        $("#editDiv").dialog("close");
+                                        alert('修改成功！');
+                                        InitList();
+                                        return;
+                                    } else {
+                                        alert('修改失败');
+                                    }
+                            });
+                        }
+                    });
+                    $("#btnCancel").click(function() {
+                        $("#editDiv").dialog("close");
+                    });
+                });
+
+                $(".delete").click(function () {
+                    var link = $(this);
+                    $.post("DeleteCaseInfo.ashx", { CaseId: link.attr("value") }, function (data) {
+                        if (data == "ok") {
+                            link.parent().parent().fadeOut();
+                        } else {
+                            alert('删除失败');
+                        }
+                    });
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    案件编号
+                </th>
+                <th>
+                    案件性质
+                </th>
+                <th>
+                    案件来源
+                </th>
+                <th>
+                    案件描述
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tBody"></tbody>
+    </table>
+
+    <div id="editDiv" style="display: none">
+        <div>
+            <h5>案件基本信息</h5>
+            <table>
+                <tr>
+                    <td>案件编号：</td>
+                    <td><input type="text" id="CaseId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>案件性质：</td>
+                    <td>
+                        <select id="selCaseLevel">
+                            <option value="轻微">轻微</option>
+                            <option value="一般">一般</option>
+                            <option value="重大">重大</option>
+                            <option value="特大">特大</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>案件来源：</td>
+                    <td>
+                        <select id="selCaseSource">
+                            <option value="直接警">直接警</option>
+                            <option value="110指挥中心分配">110指挥中心分配</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">案件简要案情描述：(包括事故发生具体时间、地点、肇事方、受害方、</td>
+                </tr>
+                <tr>
+                    <td colspan="2">伤亡情况、责任法认定、天气情况、路面情况等事故相关信息)</td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <textarea id="txtDescribe" rows="8" cols="70"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h5>接警人信息</h5>
+            <table>
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" id="JieJingRenName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>警号</td>
+                    <td><input type="text" id="JieJingRenPoliceId" value="" /></td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+            <h5>报案人信息</h5>
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" id="txtBaoJingRenName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <select id="selBaoJingRenSex">
+                            <option value="man">男</option>
+                            <option value="woman">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>身份证号：</td>
+                    <td><input type="text" id="txtBaoJingRenPeopleId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>家庭住址：</td>
+                    <td><input type="text" id="txtBaoJingRenAddress" value="" /></td>
+                </tr>
+                <tr>
+                    <td>报警电话：</td>
+                    <td><input type="text" id="txtBaoJingPhone" value="" /></td>
+                </tr>
+                <tr>
+                    <td>联系方式：</td>
+                    <td><input type="text" id="txtBaoJingRenContactWay" value="" /></td>
+                </tr>
+            </table>
+        </div>
+        <h5>操作</h5>
+        <input type="button" id="btnAdd" value="保存" />
+        <input type="button" id="btnCancel" value="取消" />
+    </div>
+</body>
+</html>

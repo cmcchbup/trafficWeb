@@ -34,6 +34,7 @@
             background-image: url('../Images/bg_body_column.png');
             background-repeat: repeat-x;
             margin: 0px;
+          
         }
 
         #Header {
@@ -44,7 +45,7 @@
         }
 
         #Main {
-            height: 800px;
+            height: 900px;
             margin-left: 178px;
         }
 
@@ -55,11 +56,11 @@
             border-right: 2px solid aquamarine;
         }
 
-        #Footer {
+        /*#Footer {
             clear: both;
             width: 100%;
             height: 20px;
-        }
+        }*/
 
         #logo {
             margin-top: 10px;
@@ -128,7 +129,7 @@
             <div id="LeftBar">
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;接警记录</a>
                 <a class="Menu2" href="AddCaseInfo.html">案件录入</a>
-                <a class="Menu2" href="NewsList.aspx">案件修改</a>
+                <a class="Menu2" href="CaseInfoList.html">案件修改</a>
                 <a class="Menu2" href="NewsList.aspx">案件删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;肇事方信息管理</a>
                 <a class="Menu2" href="AddZhaoShiFang.html">肇事方信息录入</a>
@@ -154,8 +155,8 @@
                 <iframe id="frmWork" width="100%" height="100%" frameborder="0" src="Welcome.html"></iframe>
             </div>
 
-            <div id="Footer">
-            </div>
+         <%--   <div id="Footer">
+            </div>--%>
         </div>
     </form>
 </body>
