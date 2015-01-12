@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AddCaseInfo.html" />
+    <Content Include="Admin\AddShouHaiFang.html" />
     <Content Include="Admin\AddUser.html" />
     <Content Include="Admin\AddZhaoShiFang.html" />
     <Content Include="Admin\DeleteUser.html" />
@@ -128,6 +129,8 @@
     <Content Include="Admin\DeleteUser.ashx" />
     <Content Include="Admin\AddCase.ashx" />
     <Content Include="Admin\UploadImg.ashx" />
+    <Content Include="Admin\AddZhaoShiFang.ashx" />
+    <Content Include="Admin\AddShouHaiFang.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -151,8 +154,14 @@
     <Compile Include="Admin\AddCase.ashx.cs">
       <DependentUpon>AddCase.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddShouHaiFang.ashx.cs">
+      <DependentUpon>AddShouHaiFang.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddUser.ashx.cs">
       <DependentUpon>AddUser.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddZhaoShiFang.ashx.cs">
+      <DependentUpon>AddZhaoShiFang.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\DeleteUser.ashx.cs">
       <DependentUpon>DeleteUser.ashx</DependentUpon>

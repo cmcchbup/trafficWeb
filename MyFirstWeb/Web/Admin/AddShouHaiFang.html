@@ -21,7 +21,7 @@
                 }
                 var ext = str.substring(str.lastIndexOf('.'));
                 if (ext == ".jpg" || ext == ".png" || ext == ".jpeg") {
-                    
+
                 } else {
                     alert('文件后缀必须是jpg,jpeg,png');
                     return false;
@@ -71,7 +71,7 @@
                 });
             });//上传图片-车
 
-            $("#btnSave").click(function() {//点击保存按钮
+            $("#btnSave").click(function () {//点击保存按钮
                 var name = $("#txtName").val();
                 var sex = $("#selSex").val();
                 var nation = $("#txtNation").val();
@@ -93,17 +93,17 @@
                 var imageCar = $("#imageCar").attr("src");//可空
 
 
-                if (name.length<=0||nation.length<=0||sex.length<=0||jiGuan.length<=0||birthDay.length<=0||peopleId.length<=0||chuLingRiQi.length<=0||zhunJiaCheXing.length<=0||jiaShiZhengHao.length<=0||contactWay.length<=0||carType.length<=0||carId.length<=0||carBrand.length<=0||carColor.length<=0||carOwnerName.length<=0||carOwnerPeopleId.length<=0) {
+                if (name.length <= 0 || nation.length <= 0 || sex.length <= 0 || jiGuan.length <= 0 || birthDay.length <= 0 || peopleId.length <= 0 || chuLingRiQi.length <= 0 || zhunJiaCheXing.length <= 0 || jiaShiZhengHao.length <= 0 || contactWay.length <= 0 || carType.length <= 0 || carId.length <= 0 || carBrand.length <= 0 || carColor.length <= 0 || carOwnerName.length <= 0 || carOwnerPeopleId.length <= 0) {
                     alert('内容不可为空');
                     return false;
                 } else {
-                    $.post("AddZhaoShiFang.ashx", {
+                    $.post("AddShouHaiFang.ashx", {
                         name: name,
                         sex: sex,
                         nation: nation,
                         jiGuan: jiGuan,
                         birthDay: birthDay,
-                        peopleId:peopleId,
+                        peopleId: peopleId,
                         chuLingRiQi: chuLingRiQi,
                         zhunJiaCheXing: zhunJiaCheXing,
                         jiaShiZhengHao: jiaShiZhengHao,
@@ -117,13 +117,13 @@
                         carOwnerName: carOwnerName,
                         carOwnerPeopleId: carOwnerPeopleId,
                         imageCar: imageCar
-                        },function(data) {
-                            if (data=="okok") {
-                                alert('添加成功');
-                                window.location.href = "Welcome.html";
-                            } else {
-                                alert('添加失败');
-                            }
+                    }, function (data) {
+                        if (data == "okok") {
+                            alert('添加成功');
+                            window.location.href = "Welcome.html";
+                        } else {
+                            alert('添加失败');
+                        }
                     });
                 }
             });
@@ -133,7 +133,7 @@
 <body>
     <div id="htmlDiv">
         <div>
-            <h2>肇事者信息</h2>
+            <h2>受害者信息</h2>
             <table>
                 <tr>
                     <td>姓名：</td>
@@ -193,7 +193,7 @@
         </div>
 
         <div>
-            <h2>肇事车辆信息</h2>
+            <h2>受害车辆信息</h2>
             <table>
                 <tr>
                     <td>机动车类型：</td>
