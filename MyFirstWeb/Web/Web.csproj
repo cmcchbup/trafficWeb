@@ -114,6 +114,8 @@
     <Content Include="Admin\LoginOut.html" />
     <Content Include="Admin\Main.aspx" />
     <Content Include="Admin\Welcome.html" />
+    <Content Include="Admin\ZhaoShiCheList.html" />
+    <Content Include="Admin\ZhaoShiZheList.html" />
     <Content Include="CSS\NavPager.css" />
     <Content Include="CSS\tableStyle.css" />
     <Content Include="CSS\themes\default\accordion.css" />
@@ -380,6 +382,7 @@
     <Content Include="Images\bg_body_column.png" />
     <Content Include="Images\bg_header.gif" />
     <Content Include="Images\bg_menu_one.png" />
+    <Content Include="JS\datapattern.js" />
     <Content Include="JS\jquery-1.8.2.js" />
     <Content Include="JS\jquery-1.8.2.min.js" />
     <Content Include="JS\jquery.easyui.min.js" />
@@ -397,6 +400,13 @@
     <Content Include="Admin\DeleteCaseInfo.ashx" />
     <Content Include="Admin\GetCaseInfoById.ashx" />
     <Content Include="Admin\UpdateCaseInfo.ashx" />
+    <Content Include="Admin\GetZhaoShiList.ashx" />
+    <Content Include="Admin\DeleteZhaoShiZhe.ashx" />
+    <Content Include="Admin\GetZhaoShiZheById.ashx" />
+    <Content Include="Admin\UpdateZhaoShiZhe.ashx" />
+    <Content Include="Admin\DeleteZhaoShiChe.ashx" />
+    <Content Include="Admin\GetZhaoShiCheById.ashx" />
+    <Content Include="Admin\UpdateZhaoShiChe.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -435,6 +445,12 @@
     <Compile Include="Admin\DeleteUser.ashx.cs">
       <DependentUpon>DeleteUser.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DeleteZhaoShiChe.ashx.cs">
+      <DependentUpon>DeleteZhaoShiChe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DeleteZhaoShiZhe.ashx.cs">
+      <DependentUpon>DeleteZhaoShiZhe.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditPassword.ashx.cs">
       <DependentUpon>EditPassword.ashx</DependentUpon>
     </Compile>
@@ -443,6 +459,15 @@
     </Compile>
     <Compile Include="Admin\GetCaseInfoList.ashx.cs">
       <DependentUpon>GetCaseInfoList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GetZhaoShiCheById.ashx.cs">
+      <DependentUpon>GetZhaoShiCheById.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GetZhaoShiZheById.ashx.cs">
+      <DependentUpon>GetZhaoShiZheById.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GetZhaoShiList.ashx.cs">
+      <DependentUpon>GetZhaoShiList.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -460,6 +485,12 @@
     </Compile>
     <Compile Include="Admin\UpdateCaseInfo.ashx.cs">
       <DependentUpon>UpdateCaseInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateZhaoShiChe.ashx.cs">
+      <DependentUpon>UpdateZhaoShiChe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateZhaoShiZhe.ashx.cs">
+      <DependentUpon>UpdateZhaoShiZhe.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UploadImg.ashx.cs">
       <DependentUpon>UploadImg.ashx</DependentUpon>

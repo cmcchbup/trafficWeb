@@ -34,7 +34,6 @@
             background-image: url('../Images/bg_body_column.png');
             background-repeat: repeat-x;
             margin: 0px;
-          
         }
 
         #Header {
@@ -110,7 +109,7 @@
                 $("#frmWork").attr("src", $(this).attr("href"));
                 return false;
             });
-            $(".Menu1").click(function() {
+            $(".Menu1").click(function () {
                 return false;
             });
         });
@@ -129,16 +128,15 @@
             <div id="LeftBar">
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;接警记录</a>
                 <a class="Menu2" href="AddCaseInfo.html">案件录入</a>
-                <a class="Menu2" href="CaseInfoList.html">案件修改</a>
-                <a class="Menu2" href="NewsList.aspx">案件删除</a>
+                <a class="Menu2" href="CaseInfoList.html">案件修改/删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;肇事方信息管理</a>
                 <a class="Menu2" href="AddZhaoShiFang.html">肇事方信息录入</a>
-                <a class="Menu2" href="NewsList.aspx">肇事方信息修改</a>
-                <a class="Menu2" href="NewsList.aspx">肇事方信息删除</a>
-                <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;受害方信息管理</a>
+                <a class="Menu2" href="ZhaoShiZheList.html">肇事者信息修改/删除</a>
+                <a class="Menu2" href="ZhaoShiCheList.html">肇事车辆信息修改/删除</a>
+                <a class="Menu1" href="NewsList.aspx">&nbsp;&nbsp;&nbsp;受害方信息管理</a>
                 <a class="Menu2" href="AddShouHaiFang.html">受害方信息录入</a>
-                <a class="Menu2" href="NewsList.aspx">受害方信息修改</a>
-                <a class="Menu2" href="NewsList.aspx">受害方信息删除</a>
+                <a class="Menu2" href="NewsList.aspx">受害者信息修改/删除</a>
+                <a class="Menu2" href="NewsList.aspx">受害车辆信息修改/删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;信息查询</a>
                 <a class="Menu2" href="NewsList.aspx">案件详情查询</a>
                 <a class="Menu2" href="NewsList.aspx">受害者车辆信息查询</a>
@@ -155,7 +153,7 @@
                 <iframe id="frmWork" width="100%" height="100%" frameborder="0" src="Welcome.html"></iframe>
             </div>
 
-         <%--   <div id="Footer">
+            <%--   <div id="Footer">
             </div>--%>
         </div>
     </form>
