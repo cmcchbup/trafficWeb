@@ -118,6 +118,7 @@
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\LoginOut.html" />
     <Content Include="Admin\Main.aspx" />
+    <Content Include="Admin\MainMini.aspx" />
     <Content Include="Admin\ShouHaiCheList.html" />
     <Content Include="Admin\ShouHaiZheList.html" />
     <Content Include="Admin\Welcome.html" />
@@ -517,6 +518,13 @@
     <Compile Include="Admin\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MainMini.aspx.cs">
+      <DependentUpon>MainMini.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MainMini.aspx.designer.cs">
+      <DependentUpon>MainMini.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\SearchCaseInfo.ashx.cs">
       <DependentUpon>SearchCaseInfo.ashx</DependentUpon>
     </Compile>
@@ -554,6 +562,9 @@
       <DependentUpon>ValidateCode.ashx</DependentUpon>
     </Compile>
     <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasePageMini.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
