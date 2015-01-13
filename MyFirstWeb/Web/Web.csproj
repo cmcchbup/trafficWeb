@@ -113,6 +113,8 @@
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\LoginOut.html" />
     <Content Include="Admin\Main.aspx" />
+    <Content Include="Admin\ShouHaiCheList.html" />
+    <Content Include="Admin\ShouHaiZheList.html" />
     <Content Include="Admin\Welcome.html" />
     <Content Include="Admin\ZhaoShiCheList.html" />
     <Content Include="Admin\ZhaoShiZheList.html" />
@@ -407,6 +409,13 @@
     <Content Include="Admin\DeleteZhaoShiChe.ashx" />
     <Content Include="Admin\GetZhaoShiCheById.ashx" />
     <Content Include="Admin\UpdateZhaoShiChe.ashx" />
+    <Content Include="Admin\GetShouHaiList.ashx" />
+    <Content Include="Admin\DeleteShouHaiZhe.ashx" />
+    <Content Include="Admin\GetShouHaiZheById.ashx" />
+    <Content Include="Admin\UpdateShouHaiZhe.ashx" />
+    <Content Include="Admin\DeleteShouHaiChe.ashx" />
+    <Content Include="Admin\GetShouHaiCheById.ashx" />
+    <Content Include="Admin\UpdateShouHaiChe.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -442,6 +451,12 @@
     <Compile Include="Admin\DeleteCaseInfo.ashx.cs">
       <DependentUpon>DeleteCaseInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DeleteShouHaiChe.ashx.cs">
+      <DependentUpon>DeleteShouHaiChe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DeleteShouHaiZhe.ashx.cs">
+      <DependentUpon>DeleteShouHaiZhe.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DeleteUser.ashx.cs">
       <DependentUpon>DeleteUser.ashx</DependentUpon>
     </Compile>
@@ -459,6 +474,15 @@
     </Compile>
     <Compile Include="Admin\GetCaseInfoList.ashx.cs">
       <DependentUpon>GetCaseInfoList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GetShouHaiCheById.ashx.cs">
+      <DependentUpon>GetShouHaiCheById.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GetShouHaiList.ashx.cs">
+      <DependentUpon>GetShouHaiList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GetShouHaiZheById.ashx.cs">
+      <DependentUpon>GetShouHaiZheById.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\GetZhaoShiCheById.ashx.cs">
       <DependentUpon>GetZhaoShiCheById.ashx</DependentUpon>
@@ -485,6 +509,12 @@
     </Compile>
     <Compile Include="Admin\UpdateCaseInfo.ashx.cs">
       <DependentUpon>UpdateCaseInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateShouHaiChe.ashx.cs">
+      <DependentUpon>UpdateShouHaiChe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateShouHaiZhe.ashx.cs">
+      <DependentUpon>UpdateShouHaiZhe.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpdateZhaoShiChe.ashx.cs">
       <DependentUpon>UpdateZhaoShiChe.ashx</DependentUpon>

@@ -133,10 +133,10 @@
                 <a class="Menu2" href="AddZhaoShiFang.html">肇事方信息录入</a>
                 <a class="Menu2" href="ZhaoShiZheList.html">肇事者信息修改/删除</a>
                 <a class="Menu2" href="ZhaoShiCheList.html">肇事车辆信息修改/删除</a>
-                <a class="Menu1" href="NewsList.aspx">&nbsp;&nbsp;&nbsp;受害方信息管理</a>
+                <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;受害方信息管理</a>
                 <a class="Menu2" href="AddShouHaiFang.html">受害方信息录入</a>
-                <a class="Menu2" href="NewsList.aspx">受害者信息修改/删除</a>
-                <a class="Menu2" href="NewsList.aspx">受害车辆信息修改/删除</a>
+                <a class="Menu2" href="ShouHaiZheList.html">受害者信息修改/删除</a>
+                <a class="Menu2" href="ShouHaiCheList.html">受害车辆信息修改/删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;信息查询</a>
                 <a class="Menu2" href="NewsList.aspx">案件详情查询</a>
                 <a class="Menu2" href="NewsList.aspx">受害者车辆信息查询</a>

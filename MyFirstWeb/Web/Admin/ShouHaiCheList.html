@@ -19,7 +19,7 @@
         });
         //
         function InitList() {
-            $.getJSON("GetZhaoShiList.ashx", {}, function (data) {
+            $.getJSON("GetShouHaiList.ashx", {}, function (data) {
                 for (var i = 0; i < data.CarList.length; i++) {
                     $("#tBody").html("");
                     $("#tBody").append("<tr><td>" + data.CarList[i].CarId + "</td><td>" + data.CarList[i].CarColor + "</td><td>" + data.CarList[i].CarOwnerName + "</td><td>" + data.CarList[i].CarOwnerPeopleId + "</td><td><a class='edit' href='javascript:void(0)'  value2=" + data.CarList[i].CarId + ">修改</a><a class='delete' href='javascript:void(0)'  value2=" + data.CarList[i].CarId + ">删除</a></td></tr>");
@@ -56,7 +56,7 @@
 
                 $(".delete").click(function () {
                     var link = $(this);
-                    $.post("DeleteZhaoShiChe.ashx", { CarId: link.attr("value2") }, function (data) {
+                    $.post("DeleteShouHaiChe.ashx", { CarId: link.attr("value2") }, function (data) {
                         if (data == "ok") {
                             //成功
                             link.parent().parent().fadeOut();
@@ -68,7 +68,7 @@
                 //(eval(data.ListData[i].Date.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd")
                 $(".edit").click(function () {
                     var link = $(this);
-                    $.getJSON("GetZhaoShiCheById.ashx", { CarId: link.attr("value2") }, function (data) {
+                    $.getJSON("GetShouHaiCheById.ashx", { CarId: link.attr("value2") }, function (data) {
                         //$("#txtName").val(data.Person.Name);
                         //$("#selSex").val(data.Person.Sex);
                         //$("#txtNation").val(data.Person.Nation);
@@ -117,7 +117,7 @@
                             alert('内容不可为空');
                             return false;
                         } else {
-                            $.post("UpdateZhaoShiChe.ashx", {
+                            $.post("UpdateShouHaiChe.ashx", {
                                 //name: name,
                                 //sex: sex,
                                 //nation: nation,

@@ -19,7 +19,7 @@
         });
         //
         function InitList() {
-            $.getJSON("GetZhaoShiList.ashx", {}, function (data) {
+            $.getJSON("GetShouHaiList.ashx", {}, function (data) {
                 for (var i = 0; i < data.PersonList.length; i++) {
                     $("#tBody").html("");
                     $("#tBody").append("<tr><td>" + data.PersonList[i].Id + "</td><td>" + data.PersonList[i].Name + "</td><td>" + data.PersonList[i].Sex + "</td><td>" + data.PersonList[i].Nation + "</td><td>" + data.PersonList[i].JiGuan + "</td><td>" + data.PersonList[i].PeopleId + "</td><td>" + data.PersonList[i].ZhunJiaCheXing + "</td><td>" + data.PersonList[i].JiaShiZhengHao + "</td><td>" + data.PersonList[i].ContactWay + "</td><td><a class='edit' href='javascript:void(0)' value1=" + data.PersonList[i].Id + ">修改</a><a class='delete' href='javascript:void(0)' value1=" + data.PersonList[i].Id + " >删除</a></td></tr>");
@@ -57,7 +57,7 @@
 
                 $(".delete").click(function () {
                     var link = $(this);
-                    $.post("DeleteZhaoShiZhe.ashx", { PersonId: link.attr("value1") }, function (data) {
+                    $.post("DeleteShouHaiZhe.ashx", { PersonId: link.attr("value1") }, function (data) {
                         if (data == "ok") {
                             //成功
                             link.parent().parent().fadeOut();
@@ -69,7 +69,7 @@
                 //(eval(data.ListData[i].Date.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd")
                 $(".edit").click(function () {
                     var link = $(this);
-                    $.getJSON("GetZhaoShiZheById.ashx", { PersonId: link.attr("value1") }, function (data) {
+                    $.getJSON("GetShouHaiZheById.ashx", { PersonId: link.attr("value1") }, function (data) {
                         $("#txtId").val(data.Person.Id);
                         $("#txtName").val(data.Person.Name);
                         $("#selSex").val(data.Person.Sex);
@@ -120,7 +120,7 @@
                             alert('内容不可为空');
                             return false;
                         } else {
-                            $.post("UpdateZhaoShiZhe.ashx", {
+                            $.post("UpdateShouHaiZhe.ashx", {
                                 id: id,
                                 name: name,
                                 sex: sex,
