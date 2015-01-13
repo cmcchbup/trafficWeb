@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../CSS/tableStyle.css" rel="stylesheet" />
+    <link href="../CSS/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../CSS/themes/icon.css" rel="stylesheet" />
+    <script src="../JS/jquery-1.8.2.min.js"></script>
+    <script src="../JS/jquery.easyui.min.js"></script>
+    <script src="../JS/MyAjaxForm.js"></script>
+    <script src="../JS/datapattern.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSearch").click(function () {
+                var name = $("#txtName").val();
+                var peopleId = $("#txtPeopleId").val();
+                $("#tBody").html("");
+                $.getJSON("SearchShouHaiZhe.ashx", { Name: name, PeopleId: peopleId }, function (data) {
+                    $("#tBody").html("");
+                    for (var i = 0; i < data.PersonList.length; i++) {
+                        $("#tBody").append("<tr><td>" + data.PersonList[i].Id + "</td><td>" + data.PersonList[i].Name + "</td><td>" + data.PersonList[i].Sex + "</td><td>" + data.PersonList[i].Nation + "</td><td>" + data.PersonList[i].JiGuan + "</td><td>" + data.PersonList[i].PeopleId + "</td><td>" + data.PersonList[i].ZhunJiaCheXing + "</td><td>" + data.PersonList[i].JiaShiZhengHao + "</td><td>" + data.PersonList[i].ContactWay + "</td><td><a class='show' href='javascript:void(0)' value1=" + data.PersonList[i].Id + ">详情</a></td></tr>");
+                    }
+                    $(".show").click(function () {
+                        var link = $(this);
+                        $.getJSON("GetShouHaiZheById.ashx", { PersonId: link.attr("value1") }, function (data) {
+                            $("#txtId").val(data.Person.Id);
+                            $("#txtName1").val(data.Person.Name);
+                            $("#selSex").val(data.Person.Sex);
+                            $("#txtNation").val(data.Person.Nation);
+                            $("#txtJiGuan").val(data.Person.JiGuan);
+                            $("#BirthDay").val((eval(data.Person.BirthDay.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd"));//.val(data.Person.BirthDay);
+                            $("#txtPeopleId1").val(data.Person.PeopleId);
+                            $("#ChuLingRiQi").val((eval(data.Person.ChuLingRiQi.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd"));//.val(data.Person.ChuLingRiQi);
+                            $("#txtZhunJiaCheXing").val(data.Person.ZhunJiaCheXing);
+                            $("#txtJiaShiZhengHao").val(data.Person.JiaShiZhengHao);
+                            $("#txtContactWay").val(data.Person.ContactWay);
+                            $("#txtAddress").val(data.Person.Address);//可空
+                            $("#imagePeople").attr("src", data.Person.Photo);//可空
+                            //$("#txtCarType").val(data.Car.CarType);
+                            //$("#txtCarId").val(data.Car.CarId);
+                            //$("#txtCarBrand").val(data.Car.CarBrand);
+                            //$("#txtCarColor").val(data.Car.CarColor);
+                            //$("#txtCarOwnerName").val(data.Car.CarOwnerName);
+                            //$("#txtCarOwnerPeopleId").val(data.Car.CarOwnerPeopleId);
+                            //$("#imageCar").attr("src", data.Car.CarPhoto);//可空
+                        });
+
+                        $("#editDiv").css("display", "block");
+                        $("#editDiv").dialog({
+                            title: "查看受害者信息",
+                            width: 600,
+                            heigth: 200,
+                            modal: true
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div>
+        <table>
+            <tr>
+                <td>受害者姓名</td>
+                <td><input type="text" id="txtName" value="" /></td>
+            </tr>
+            <tr>
+                <td>受害者身份证号</td>
+                <td><input type="text" id="txtPeopleId" value="" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" id="btnSearch" value="搜索" /></td>
+            </tr>
+        </table>
+    </div>
+    <div id="editDiv" style="display: none">
+        <div>
+            <h2>受害者信息</h2>
+            <input type="hidden" id="txtId" value="" />
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" id="txtName1" value="" /></td>
+                    <td>性别：</td>
+                    <td>
+                        <select id="selSex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>民族：</td>
+                    <td><input type="text" id="txtNation" value="" /></td>
+                    <td>籍贯：</td>
+                    <td><input type="text" id="txtJiGuan" value="" /></td>
+                </tr>
+                <tr>
+                    <td>出生年月：</td>
+                    <td><input type="date" id="BirthDay" value="" /></td>
+                    <td>身份证号：</td>
+                    <td><input type="text" id="txtPeopleId1" value="" /></td>
+                </tr>
+                <tr>
+                    <td>驾驶证初领日期：</td>
+                    <td><input type="date" id="ChuLingRiQi" value="" /></td>
+                    <td>驾驶人准驾车型：</td>
+                    <td><input type="text" id="txtZhunJiaCheXing" value="" /></td>
+                </tr>
+                <tr>
+                    <td>驾驶证号：</td>
+                    <td><input type="text" id="txtJiaShiZhengHao" value="" /></td>
+                    <td>联系方式：</td>
+                    <td><input type="text" id="txtContactWay" value="" /></td>
+                </tr>
+                <tr>
+                    <td>联系地址：</td>
+                    <td colspan="2"><input type="text" id="txtAddress" value="" /></td>
+
+                </tr>
+                <!--<td>照片：</td>
+                    <td><input type="file" id="imgPerson" value="上传照片" /></td>
+                    <td><input type="button" id="btnUploadPeople" value="上传" /></td>
+                    <td hidden="true" colspan="4"><img src="#" alt="Alternate Text" /></td>-->
+
+            </table>
+            <div>
+                <form id="frmUploadPeople">
+                    照片：<!--<input type="file" id="imgPerson" name="img" />
+                    <input type="button" id="btnUploadPeople" value="上传" />-->
+                </form>
+            </div>
+            <div style='height: 100px;width: 100px' id="ImgPeople">
+                <img style='height: 100px;width: 100px' src="" id="imagePeople" />
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>受害者编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>民族</th>
+                    <th>籍贯</th>
+                    <th>身份证号</th>
+                    <th>驾驶人准驾车型</th>
+                    <th>驾驶证号</th>
+                    <th>联系方式</th>
+
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tBody"></tbody>
+        </table>
+    </div>
+</body>
+</html>

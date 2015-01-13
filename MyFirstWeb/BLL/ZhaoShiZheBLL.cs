@@ -43,5 +43,14 @@ namespace NET.CLY.BLL
 		{
 			return new ZhaoShiZheDAL().GetAll();
 		}
+
+        public IEnumerable<ZhaoShiZhe> GetByName(string name)
+        {
+            return new ZhaoShiZheDAL().GetByName(name);
+        }
+        public IEnumerable<ZhaoShiZhe> GetByPeopleId(string peopleId)
+        {
+            return new ZhaoShiZheDAL().GetByPeopleId(peopleId);
+        }
     }
 }

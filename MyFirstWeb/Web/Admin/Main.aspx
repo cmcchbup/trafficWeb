@@ -138,11 +138,11 @@
                 <a class="Menu2" href="ShouHaiZheList.html">受害者信息修改/删除</a>
                 <a class="Menu2" href="ShouHaiCheList.html">受害车辆信息修改/删除</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;信息查询</a>
-                <a class="Menu2" href="NewsList.aspx">案件详情查询</a>
-                <a class="Menu2" href="NewsList.aspx">受害者车辆信息查询</a>
-                <a class="Menu2" href="NewsList.aspx">受害者信息查询</a>
-                <a class="Menu2" href="NewsList.aspx">肇事者车辆信息查询</a>
-                <a class="Menu2" href="NewsList.aspx">肇事者信息查询</a>
+                <a class="Menu2" href="InquireCaseInfo.html">案件详情查询</a>
+                <a class="Menu2" href="InquireZhaoShiZhe.html">肇事者信息查询</a>
+                <a class="Menu2" href="InquireZhaoShiChe.html">肇事者车辆信息查询</a>
+                <a class="Menu2" href="InquireShouHaiZhe.html">受害者信息查询</a>
+                <a class="Menu2" href="InquireShouhaiChe.html">受害者车辆信息查询</a>
                 <a class="Menu1" href="">&nbsp;&nbsp;&nbsp;系统设置</a>
                 <a class="Menu2" href="AddUser.html">添加用户</a>
                 <a class="Menu2" href="DeleteUser.html">注销用户</a>

@@ -43,5 +43,15 @@ namespace NET.CLY.BLL
 		{
 			return new CaseInfoDAL().GetAll();
 		}
+
+        public IEnumerable<CaseInfo> GetBySql(string sql)
+        {
+            return new CaseInfoDAL().GetBySql(sql);
+        }
+
+        public IEnumerable<CaseInfo> GetByLevel(string level)
+        {
+            return new CaseInfoDAL().GetByLevel(level);
+        }
     }
 }

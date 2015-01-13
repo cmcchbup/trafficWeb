@@ -110,6 +110,11 @@
     <Content Include="Admin\CaseInfoList.html" />
     <Content Include="Admin\DeleteUser.html" />
     <Content Include="Admin\EditPassword.html" />
+    <Content Include="Admin\InquireCaseInfo.html" />
+    <Content Include="Admin\InquireShouhaiChe.html" />
+    <Content Include="Admin\InquireShouHaiZhe.html" />
+    <Content Include="Admin\InquireZhaoShiChe.html" />
+    <Content Include="Admin\InquireZhaoShiZhe.html" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\LoginOut.html" />
     <Content Include="Admin\Main.aspx" />
@@ -416,6 +421,11 @@
     <Content Include="Admin\DeleteShouHaiChe.ashx" />
     <Content Include="Admin\GetShouHaiCheById.ashx" />
     <Content Include="Admin\UpdateShouHaiChe.ashx" />
+    <Content Include="Admin\SearchCaseInfo.ashx" />
+    <Content Include="Admin\SearchZhaoShiZhe.ashx" />
+    <Content Include="Admin\SearchShouHaiZhe.ashx" />
+    <Content Include="Admin\SearchZhaoShiChe.ashx" />
+    <Content Include="Admin\SearchShouHaiChe.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -506,6 +516,21 @@
     </Compile>
     <Compile Include="Admin\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SearchCaseInfo.ashx.cs">
+      <DependentUpon>SearchCaseInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SearchShouHaiChe.ashx.cs">
+      <DependentUpon>SearchShouHaiChe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SearchShouHaiZhe.ashx.cs">
+      <DependentUpon>SearchShouHaiZhe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SearchZhaoShiChe.ashx.cs">
+      <DependentUpon>SearchZhaoShiChe.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SearchZhaoShiZhe.ashx.cs">
+      <DependentUpon>SearchZhaoShiZhe.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpdateCaseInfo.ashx.cs">
       <DependentUpon>UpdateCaseInfo.ashx</DependentUpon>

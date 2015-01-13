@@ -103,7 +103,22 @@ namespace NET.CLY.DAL
 				return ToModels(reader);					
 			}
 		}
-		
+        public IEnumerable<CaseInfo> GetBySql(string sql)
+        {
+            //string sql = "SELECT * FROM CaseInfo";
+            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql))
+            {
+                return ToModels(reader);
+            }
+        }
+        public IEnumerable<CaseInfo> GetByLevel(string level)
+        {
+            string sql = "SELECT * FROM CaseInfo where CaseLevel=@CaseLevel";
+            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql, new SqlParameter("@CaseLevel",level)))
+            {
+                return ToModels(reader);
+            }
+        }
 		public IEnumerable<CaseInfo> GetAll()
 		{
 			string sql = "SELECT * FROM CaseInfo";

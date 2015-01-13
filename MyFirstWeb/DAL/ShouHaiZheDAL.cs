@@ -182,5 +182,21 @@ namespace NET.CLY.DAL
 				return reader[columnName];
 			}
 		}
+        public IEnumerable<ShouHaiZhe> GetByName(string name)
+        {
+            string sql = "SELECT * FROM ShouHaiZhe where Name=@Name";
+            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql, new SqlParameter("@Name", name)))
+            {
+                return ToModels(reader);
+            }
+        }
+        public IEnumerable<ShouHaiZhe> GetByPeopleId(string peopleId)
+        {
+            string sql = "SELECT * FROM ShouHaiZhe where PeopleId=@PeopleId";
+            using (SqlDataReader reader = SqlHelper.ExecuteDataReader(sql, new SqlParameter("@PeopleId", peopleId)))
+            {
+                return ToModels(reader);
+            }
+        }
 	}
 }
