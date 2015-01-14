@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../CSS/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../CSS/themes/icon.css" rel="stylesheet" />
+    <link href="../CSS/tableStyle.css" rel="stylesheet" />
+    <script src="../JS/jquery-1.8.2.min.js"></script>
+    <script src="../JS/jquery.easyui.min.js"></script>
+    <script src="../JS/MyAjaxForm.js"></script>
+    <script src="../JS/datapattern.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+            InitList();
+
+        });
+        //
+        function InitList() {
+            $.getJSON("GetShouHaiList.ashx", {}, function (data) {
+                for (var i = 0; i < data.CarList.length; i++) {
+                    $("#tBody").html("");
+                    $("#tBody").append("<tr><td>" + data.CarList[i].CarId + "</td><td>" + data.CarList[i].CarColor + "</td><td>" + data.CarList[i].CarOwnerName + "</td><td>" + data.CarList[i].CarOwnerPeopleId + "</td><td><a class='edit' href='javascript:void(0)'  value2=" + data.CarList[i].CarId + ">修改</a><a class='delete' href='javascript:void(0)'  value2=" + data.CarList[i].CarId + ">删除</a></td></tr>");
+                }
+
+                $("#btnUploadCar").click(function () {
+
+                    var str = $("#imgCar").val();
+                    if (str.length <= 0) {
+                        alert('请选择文件');
+                        return false;
+                    }
+                    var ext = str.substring(str.lastIndexOf('.'));
+                    if (ext == ".jpg" || ext == ".png" || ext == ".jpeg") {
+
+                    } else {
+                        alert('文件后缀必须是jpg,jpeg,png');
+                        return false;
+                    }
+                    $("#frmUploadCar").ajaxSubmit({
+                        url: "UploadImg.ashx",
+                        type: "POST",
+                        success: function (data) {
+                            if (data != null) {
+                                if (data == "extError") {
+                                    alert('文件后缀只能是jpg,jpeg,png');
+                                } else {
+                                    $("#ImgCar").html("<img id='imageCar' style='height: 100px;width: 100px' src=" + data + "></img>");
+                                }
+                            }
+                        }
+                    });
+                });//上传图片-车
+
+                $(".delete").click(function () {
+                    var link = $(this);
+                    $.post("DeleteShouHaiChe.ashx", { CarId: link.attr("value2") }, function (data) {
+                        if (data == "ok") {
+                            //成功
+                            link.parent().parent().fadeOut();
+                        } else {
+                            alert('删除失败');
+                        }
+                    });
+                });//删除按钮
+                //(eval(data.ListData[i].Date.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd")
+                $(".edit").click(function () {
+                    var link = $(this);
+                    $.getJSON("GetShouHaiCheById.ashx", { CarId: link.attr("value2") }, function (data) {
+                        //$("#txtName").val(data.Person.Name);
+                        //$("#selSex").val(data.Person.Sex);
+                        //$("#txtNation").val(data.Person.Nation);
+                        //$("#txtJiGuan").val(data.Person.JiGuan);
+                        //$("#BirthDay").val((eval(data.Person.BirthDay.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd"));//.val(data.Person.BirthDay);
+                        //$("#txtPeopleId").val(data.Person.PeopleId);
+                        //$("#ChuLingRiQi").val((eval(data.Person.ChuLingRiQi.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd"));//.val(data.Person.ChuLingRiQi);
+                        //$("#txtZhunJiaCheXing").val(data.Person.ZhunJiaCheXing);
+                        //$("#txtJiaShiZhengHao").val(data.Person.JiaShiZhengHao);
+                        //$("#txtContactWay").val(data.Person.ContactWay);
+                        //$("#txtAddress").val(data.Person.Address);//可空
+                        //$("#imagePeople").attr("src", data.Person.Photo);//可空
+                        $("#txtCarType").val(data.Car.CarType);
+                        $("#txtCarId").val(data.Car.CarId);
+                        $("#txtCarBrand").val(data.Car.CarBrand);
+                        $("#txtCarColor").val(data.Car.CarColor);
+                        $("#txtCarOwnerName").val(data.Car.CarOwnerName);
+                        $("#txtCarOwnerPeopleId").val(data.Car.CarOwnerPeopleId);
+                        $("#imageCar").attr("src", data.Car.CarPhoto);//可空
+                    });
+
+                    $("#btnSave").unbind("click");
+                    $("#btnSave").click(function () {
+                        //var name = $("#txtName").val();
+                        //var sex = $("#selSex").val();
+                        //var nation = $("#txtNation").val();
+                        //var jiGuan = $("#txtJiGuan").val();
+                        //var birthDay = $("#BirthDay").val();
+                        //var peopleId = $("#txtPeopleId").val();
+                        //var chuLingRiQi = $("#ChuLingRiQi").val();
+                        //var zhunJiaCheXing = $("#txtZhunJiaCheXing").val();
+                        //var jiaShiZhengHao = $("#txtJiaShiZhengHao").val();
+                        //var contactWay = $("#txtContactWay").val();
+                        //var address = $("#txtAddress").val();//可空
+                        //var imagePoeple = $("#imagePeople").attr("src");//可空
+                        var carType = $("#txtCarType").val();
+                        var carId = $("#txtCarId").val();
+                        var carBrand = $("#txtCarBrand").val();
+                        var carColor = $("#txtCarColor").val();
+                        var carOwnerName = $("#txtCarOwnerName").val();
+                        var carOwnerPeopleId = $("#txtCarOwnerPeopleId").val();
+                        var imageCar = $("#imageCar").attr("src");//可空
+
+
+                        if (carType.length <= 0 || carId.length <= 0 || carBrand.length <= 0 || carColor.length <= 0 || carOwnerName.length <= 0 || carOwnerPeopleId.length <= 0) {
+                            alert('内容不可为空');
+                            return false;
+                        } else {
+                            $.post("UpdateShouHaiChe.ashx", {
+                                //name: name,
+                                //sex: sex,
+                                //nation: nation,
+                                //jiGuan: jiGuan,
+                                //birthDay: birthDay,
+                                //peopleId: peopleId,
+                                //chuLingRiQi: chuLingRiQi,
+                                //zhunJiaCheXing: zhunJiaCheXing,
+                                //jiaShiZhengHao: jiaShiZhengHao,
+                                //contactWay: contactWay,
+                                //address: address,
+                                //imagePoeple: imagePoeple,
+                                carType: carType,
+                                carId: carId,
+                                carBrand: carBrand,
+                                carColor: carColor,
+                                carOwnerName: carOwnerName,
+                                carOwnerPeopleId: carOwnerPeopleId,
+                                imageCar: imageCar
+                            }, function (data) {
+                                if (data == "ok") {
+                                    alert('修改成功');
+                                    $("#editDiv").dialog("close");
+                                    InitList();
+                                    //window.location.href = "Welcome.html";
+                                } else {
+                                    alert('修改失败');
+                                }
+                            });
+                        }
+                    });
+
+                    $("#btnCancel").click(function () {
+                        $("#editDiv").dialog("close");
+                    });
+
+                    $("#editDiv").css("display", "block");
+                    $("#editDiv").dialog({
+                        title: "修改肇事车辆信息",
+                        width: 600,
+                        heigth: 200,
+                        modal: true
+                    });
+
+                });//编辑按钮
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+
+                    <th>车牌号码</th>
+                    <th>车身颜色</th>
+                    <th>车主姓名</th>
+                    <th>车主身份证号</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tBody"></tbody>
+        </table>
+    </div>
+    <div id="editDiv" style="display: none">
+        <div>
+            <h2>肇事车辆信息</h2>
+            <table>
+                <tr>
+                    <td>机动车类型：</td>
+                    <td><input type="text" id="txtCarType" value="" /></td>
+                    <td>车牌号码：</td>
+                    <td><input type="text" id="txtCarId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>车辆品牌：</td>
+                    <td><input type="text" id="txtCarBrand" value="" /></td>
+                    <td>车身颜色：</td>
+                    <td><input type="text" id="txtCarColor" value="" /></td>
+                </tr>
+                <tr>
+                    <td>车主姓名：</td>
+                    <td><input type="text" id="txtCarOwnerName" value="" /></td>
+                    <td>车主身份证号：</td>
+                    <td><input type="text" id="txtCarOwnerPeopleId" value="" /></td>
+                </tr>
+
+            </table>
+            <form id="frmUploadCar">
+
+                照片：<input type="file" id="imgCar" name="img" />
+                <input type="button" id="btnUploadCar" value="上传" />
+
+            </form>
+            <div style='height: 100px;width: 100px' id="ImgCar">
+                <img style='height: 100px;width: 100px' id="imageCar" />
+            </div>
+        </div>
+
+        <div>
+            <h2>操作</h2>
+            <input type="button" id="btnSave" value="保存" />
+            <input type="button" id="btnCancel" value="取消" />
+        </div>
+    </div>
+</body>
+</html>

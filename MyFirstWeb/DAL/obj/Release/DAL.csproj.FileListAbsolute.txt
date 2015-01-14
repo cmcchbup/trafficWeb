@@ -1,0 +1,7 @@
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Release\DAL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Release\DAL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Release\Model.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\bin\Release\Model.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\obj\Release\DAL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\DAL\obj\Release\DAL.pdb

@@ -427,6 +427,7 @@
     <Content Include="Admin\SearchShouHaiZhe.ashx" />
     <Content Include="Admin\SearchZhaoShiChe.ashx" />
     <Content Include="Admin\SearchShouHaiChe.ashx" />
+    <None Include="Properties\PublishProfiles\traffic.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

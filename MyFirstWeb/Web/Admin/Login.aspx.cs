@@ -50,7 +50,7 @@ namespace NET.CLY.Admin
                     {//存在用户
                         //跳转到后台页面，并将用户存储在Session中
                         Session["LoginUser"] = model;
-                        Response.Redirect("Main.aspx");
+                        Response.Redirect("/admin/Main.aspx");
 
                     }
                     else

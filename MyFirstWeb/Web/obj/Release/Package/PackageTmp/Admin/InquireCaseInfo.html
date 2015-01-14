@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../CSS/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../CSS/themes/icon.css" rel="stylesheet" />
+    <link href="../CSS/tableStyle.css" rel="stylesheet" />
+    <script src="../JS/jquery-1.8.2.min.js"></script>
+    <script src="../JS/jquery.easyui.min.js"></script>
+    <script src="../JS/MyAjaxForm.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSearch").click(function () {
+                var caseId = $("#txtCaseId").val();
+                var caseLevel = $("#selCaseLevel").val();
+                //var caseSource = $("#selCaseSource").val();
+                $.getJSON("SearchCaseInfo.ashx", { CaseId: caseId, CaseLevel: caseLevel }, function (data) {
+                    $("#tBody").html("");
+                    for (var i = 0; i < data.length; i++) {
+                        $("#tBody").append("<tr><td>" + data[i].CaseId + "</td><td>" + data[i].CaseLevel + "</td><td>" + data[i].CaseSource + "</td><td>" + data[i].CaseDescribe + "</td><td><a class='show' href='javascript:void(0)' value='" + data[i].CaseId + "'>详情</a></td></tr>");
+                    }
+                    $(".show").unbind("click");
+                    $(".show").click(function () {
+                        var link = $(this);
+                        $.getJSON("GetCaseInfoById.ashx", { caseId: link.attr("value") }, function (data) {
+                            //获取案件基本信息
+                            $("#CaseId").val(data.CaseInfo.CaseId);
+                            $("#selCaseLevel").val(data.CaseInfo.CaseLevel);
+                            $("#selCaseSource").val(data.CaseInfo.CaseSource);
+                            $("#txtDescribe").val(data.CaseInfo.CaseDescribe);
+                            //获取接警人信息
+                            $("#JieJingRenName").val(data.JieJingRen.Name);
+                            $("#JieJingRenPoliceId").val(data.JieJingRen.PoliceId);
+                            //获取报案人信息
+                            $("#txtBaoJingRenName").val(data.BaoJingRen.Name);
+                            $("#selBaoJingRenSex").val(data.BaoJingRen.Sex);
+                            $("#txtBaoJingRenPeopleId").val(data.BaoJingRen.PeopleId);
+                            $("#txtBaoJingRenAddress").val(data.BaoJingRen.Address);//可空
+                            $("#txtBaoJingPhone").val(data.BaoJingRen.BaoJingPhone);
+                            $("#txtBaoJingRenContactWay").val(data.BaoJingRen.ContactWay);//可空
+
+                        });
+
+                        $("#showDiv").css("display", "block");
+                        $("#showDiv").dialog({
+                            title: "修改案件",
+                            width: 600,
+                            heigth: 200,
+                            modal: true
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h2>案件搜索</h2>
+        <table>
+            <tr>
+                <td>案件编号</td>
+                <td><input type="text" id="txtCaseId" value="" /></td>
+            </tr>
+            <tr>
+                <td>案件性质</td>
+                <td>
+                    <select id="selCaseLevel">
+                        <option value="不选">不选</option>
+                        <option value="轻微">轻微</option>
+                        <option value="一般">一般</option>
+                        <option value="重大">重大</option>
+                        <option value="特大">特大</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <!--<td>案件来源</td>
+                <td>
+                    <select id="selCaseSource">
+                        <option value="不选">不选</option>
+                        <option value="直接警">直接警</option>
+                        <option value="110指挥中心分配">110指挥中心分配</option>
+                    </select>
+                </td>-->
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" id="btnSearch" name="search" value="搜索" /></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        案件编号
+                    </th>
+                    <th>
+                        案件性质
+                    </th>
+                    <th>
+                        案件来源
+                    </th>
+                    <th>
+                        案件描述
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tBody"></tbody>
+        </table>
+    </div>
+    <div id="showDiv" style="display: none">
+        <div>
+            <h5>案件基本信息</h5>
+            <table>
+                <tr>
+                    <td>案件编号：</td>
+                    <td><input type="text" id="CaseId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>案件性质：</td>
+                    <td>
+                        <select id="selCaseLevel">
+                            <option value="轻微">轻微</option>
+                            <option value="一般">一般</option>
+                            <option value="重大">重大</option>
+                            <option value="特大">特大</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>案件来源：</td>
+                    <td>
+                        <select id="selCaseSource">
+                            <option value="直接警">直接警</option>
+                            <option value="110指挥中心分配">110指挥中心分配</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">案件简要案情描述：(包括事故发生具体时间、地点、肇事方、受害方、</td>
+                </tr>
+                <tr>
+                    <td colspan="2">伤亡情况、责任法认定、天气情况、路面情况等事故相关信息)</td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <textarea id="txtDescribe" rows="8" cols="70"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h5>接警人信息</h5>
+            <table>
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" id="JieJingRenName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>警号</td>
+                    <td><input type="text" id="JieJingRenPoliceId" value="" /></td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+            <h5>报案人信息</h5>
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" id="txtBaoJingRenName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <select id="selBaoJingRenSex">
+                            <option value="man">男</option>
+                            <option value="woman">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>身份证号：</td>
+                    <td><input type="text" id="txtBaoJingRenPeopleId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>家庭住址：</td>
+                    <td><input type="text" id="txtBaoJingRenAddress" value="" /></td>
+                </tr>
+                <tr>
+                    <td>报警电话：</td>
+                    <td><input type="text" id="txtBaoJingPhone" value="" /></td>
+                </tr>
+                <tr>
+                    <td>联系方式：</td>
+                    <td><input type="text" id="txtBaoJingRenContactWay" value="" /></td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</body>
+</html>

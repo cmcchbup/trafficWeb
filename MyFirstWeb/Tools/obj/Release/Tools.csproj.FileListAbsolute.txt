@@ -1,0 +1,5 @@
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\bin\Release\Tools.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\bin\Release\Tools.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\obj\Release\Tools.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\obj\Release\Tools.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\Tools\obj\Release\Tools.pdb

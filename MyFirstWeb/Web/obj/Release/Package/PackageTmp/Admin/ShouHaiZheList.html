@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../CSS/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../CSS/themes/icon.css" rel="stylesheet" />
+    <link href="../CSS/tableStyle.css" rel="stylesheet" />
+    <script src="../JS/jquery-1.8.2.min.js"></script>
+    <script src="../JS/jquery.easyui.min.js"></script>
+    <script src="../JS/MyAjaxForm.js"></script>
+    <script src="../JS/datapattern.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+            InitList();
+
+        });
+        //
+        function InitList() {
+            $.getJSON("GetShouHaiList.ashx", {}, function (data) {
+                for (var i = 0; i < data.PersonList.length; i++) {
+                    $("#tBody").html("");
+                    $("#tBody").append("<tr><td>" + data.PersonList[i].Id + "</td><td>" + data.PersonList[i].Name + "</td><td>" + data.PersonList[i].Sex + "</td><td>" + data.PersonList[i].Nation + "</td><td>" + data.PersonList[i].JiGuan + "</td><td>" + data.PersonList[i].PeopleId + "</td><td>" + data.PersonList[i].ZhunJiaCheXing + "</td><td>" + data.PersonList[i].JiaShiZhengHao + "</td><td>" + data.PersonList[i].ContactWay + "</td><td><a class='edit' href='javascript:void(0)' value1=" + data.PersonList[i].Id + ">修改</a><a class='delete' href='javascript:void(0)' value1=" + data.PersonList[i].Id + " >删除</a></td></tr>");
+                }
+                $("#btnUploadPeople").click(function () {
+                    var str = $("#imgPerson").val();
+                    if (str.length <= 0) {
+                        alert('请选择文件');
+                        return false;
+                    }
+                    var ext = str.substring(str.lastIndexOf('.'));
+                    if (ext == ".jpg" || ext == ".png" || ext == ".jpeg") {
+
+                    } else {
+                        alert('文件后缀必须是jpg,jpeg,png');
+                        return false;
+                    }
+
+                    $("#frmUploadPeople").ajaxSubmit({
+                        url: "UploadImg.ashx",
+                        type: "POST",
+                        success: function (data) {
+                            if (data != null) {
+                                if (data == "extError") {
+                                    alert('文件后缀只能是jpg,jpeg,png');
+                                } else {
+                                    $("#ImgPeople").html("<img id='imagePeople' style='height: 100px;width: 100px' src=" + data + "></img>");
+                                }
+                            }
+                        }
+                    });
+                });//上传图片-人
+
+
+
+                $(".delete").click(function () {
+                    var link = $(this);
+                    $.post("DeleteShouHaiZhe.ashx", { PersonId: link.attr("value1") }, function (data) {
+                        if (data == "ok") {
+                            //成功
+                            link.parent().parent().fadeOut();
+                        } else {
+                            alert('删除失败');
+                        }
+                    });
+                });//删除按钮
+                //(eval(data.ListData[i].Date.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd")
+                $(".edit").click(function () {
+                    var link = $(this);
+                    $.getJSON("GetShouHaiZheById.ashx", { PersonId: link.attr("value1") }, function (data) {
+                        $("#txtId").val(data.Person.Id);
+                        $("#txtName").val(data.Person.Name);
+                        $("#selSex").val(data.Person.Sex);
+                        $("#txtNation").val(data.Person.Nation);
+                        $("#txtJiGuan").val(data.Person.JiGuan);
+                        $("#BirthDay").val((eval(data.Person.BirthDay.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd"));//.val(data.Person.BirthDay);
+                        $("#txtPeopleId").val(data.Person.PeopleId);
+                        $("#ChuLingRiQi").val((eval(data.Person.ChuLingRiQi.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd"));//.val(data.Person.ChuLingRiQi);
+                        $("#txtZhunJiaCheXing").val(data.Person.ZhunJiaCheXing);
+                        $("#txtJiaShiZhengHao").val(data.Person.JiaShiZhengHao);
+                        $("#txtContactWay").val(data.Person.ContactWay);
+                        $("#txtAddress").val(data.Person.Address);//可空
+                        $("#imagePeople").attr("src", data.Person.Photo);//可空
+                        //$("#txtCarType").val(data.Car.CarType);
+                        //$("#txtCarId").val(data.Car.CarId);
+                        //$("#txtCarBrand").val(data.Car.CarBrand);
+                        //$("#txtCarColor").val(data.Car.CarColor);
+                        //$("#txtCarOwnerName").val(data.Car.CarOwnerName);
+                        //$("#txtCarOwnerPeopleId").val(data.Car.CarOwnerPeopleId);
+                        //$("#imageCar").attr("src", data.Car.CarPhoto);//可空
+                    });
+
+                    $("#btnSave").unbind("click");
+                    $("#btnSave").click(function () {
+                        var id = $("#txtId").val();
+                        var name = $("#txtName").val();
+                        var sex = $("#selSex").val();
+                        var nation = $("#txtNation").val();
+                        var jiGuan = $("#txtJiGuan").val();
+                        var birthDay = $("#BirthDay").val();
+                        var peopleId = $("#txtPeopleId").val();
+                        var chuLingRiQi = $("#ChuLingRiQi").val();
+                        var zhunJiaCheXing = $("#txtZhunJiaCheXing").val();
+                        var jiaShiZhengHao = $("#txtJiaShiZhengHao").val();
+                        var contactWay = $("#txtContactWay").val();
+                        var address = $("#txtAddress").val();//可空
+                        var imagePoeple = $("#imagePeople").attr("src");//可空
+                        //var carType = $("#txtCarType").val();
+                        //var carId = $("#txtCarId").val();
+                        //var carBrand = $("#txtCarBrand").val();
+                        //var carColor = $("#txtCarColor").val();
+                        //var carOwnerName = $("#txtCarOwnerName").val();
+                        //var carOwnerPeopleId = $("#txtCarOwnerPeopleId").val();
+                        //var imageCar = $("#imageCar").attr("src");//可空
+
+
+                        if (id.length <= 0 || name.length <= 0 || nation.length <= 0 || sex.length <= 0 || jiGuan.length <= 0 || birthDay.length <= 0 || peopleId.length <= 0 || chuLingRiQi.length <= 0 || zhunJiaCheXing.length <= 0 || jiaShiZhengHao.length <= 0 || contactWay.length <= 0) {
+                            alert('内容不可为空');
+                            return false;
+                        } else {
+                            $.post("UpdateShouHaiZhe.ashx", {
+                                id: id,
+                                name: name,
+                                sex: sex,
+                                nation: nation,
+                                jiGuan: jiGuan,
+                                birthDay: birthDay,
+                                peopleId: peopleId,
+                                chuLingRiQi: chuLingRiQi,
+                                zhunJiaCheXing: zhunJiaCheXing,
+                                jiaShiZhengHao: jiaShiZhengHao,
+                                contactWay: contactWay,
+                                address: address,
+                                imagePoeple: imagePoeple,
+                                //carType: carType,
+                                //carId: carId,
+                                //carBrand: carBrand,
+                                //carColor: carColor,
+                                //carOwnerName: carOwnerName,
+                                //carOwnerPeopleId: carOwnerPeopleId,
+                                //imageCar: imageCar
+                            }, function (data) {
+                                if (data == "ok") {
+                                    alert('修改成功');
+                                    $("#editDiv").dialog("close");
+                                    InitList();
+                                    //window.location.href = "Welcome.html";
+                                } else {
+                                    alert('修改失败');
+                                }
+                            });
+                        }
+                    });
+
+                    $("#btnCancel").click(function () {
+                        $("#editDiv").dialog("close");
+                    });
+
+                    $("#editDiv").css("display", "block");
+                    $("#editDiv").dialog({
+                        title: "修改肇事者信息",
+                        width: 600,
+                        heigth: 200,
+                        modal: true
+                    });
+
+                });//编辑按钮
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>肇事者编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>民族</th>
+                    <th>籍贯</th>
+                    <th>身份证号</th>
+                    <th>驾驶人准驾车型</th>
+                    <th>驾驶证号</th>
+                    <th>联系方式</th>
+
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tBody"></tbody>
+        </table>
+    </div>
+    <div id="editDiv" style="display: none">
+        <div>
+            <h2>肇事者信息</h2>
+            <input type="hidden" id="txtId" value="" />
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" id="txtName" value="" /></td>
+                    <td>性别：</td>
+                    <td>
+                        <select id="selSex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>民族：</td>
+                    <td><input type="text" id="txtNation" value="" /></td>
+                    <td>籍贯：</td>
+                    <td><input type="text" id="txtJiGuan" value="" /></td>
+                </tr>
+                <tr>
+                    <td>出生年月：</td>
+                    <td><input type="date" id="BirthDay" value="" /></td>
+                    <td>身份证号：</td>
+                    <td><input type="text" id="txtPeopleId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>驾驶证初领日期：</td>
+                    <td><input type="date" id="ChuLingRiQi" value="" /></td>
+                    <td>驾驶人准驾车型：</td>
+                    <td><input type="text" id="txtZhunJiaCheXing" value="" /></td>
+                </tr>
+                <tr>
+                    <td>驾驶证号：</td>
+                    <td><input type="text" id="txtJiaShiZhengHao" value="" /></td>
+                    <td>联系方式：</td>
+                    <td><input type="text" id="txtContactWay" value="" /></td>
+                </tr>
+                <tr>
+                    <td>联系地址：</td>
+                    <td colspan="2"><input type="text" id="txtAddress" value="" /></td>
+
+                </tr>
+                <!--<td>照片：</td>
+                <td><input type="file" id="imgPerson" value="上传照片" /></td>
+                <td><input type="button" id="btnUploadPeople" value="上传" /></td>
+                <td hidden="true" colspan="4"><img src="#" alt="Alternate Text" /></td>-->
+
+            </table>
+            <div>
+                <form id="frmUploadPeople">
+                    照片：<input type="file" id="imgPerson" name="img" />
+                    <input type="button" id="btnUploadPeople" value="上传" />
+                </form>
+            </div>
+            <div style='height: 100px;width: 100px' id="ImgPeople">
+                <img style='height: 100px;width: 100px' src="" id="imagePeople" />
+            </div>
+        </div>
+
+
+
+        <div>
+            <h2>操作</h2>
+            <input type="button" id="btnSave" value="保存" />
+            <input type="button" id="btnCancel" value="取消" />
+        </div>
+    </div>
+</body>
+</html>

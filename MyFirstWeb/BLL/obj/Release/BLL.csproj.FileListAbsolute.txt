@@ -1,0 +1,9 @@
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Release\BLL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Release\BLL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Release\DAL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Release\Model.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Release\DAL.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\bin\Release\Model.pdb
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\obj\Release\BLL.dll
+C:\Users\root\Documents\GitHub\trafficWeb\MyFirstWeb\BLL\obj\Release\BLL.pdb
